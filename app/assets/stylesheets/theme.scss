@@ -1,5 +1,6 @@
+@import 'settings';
+@import 'breakpoint';
 //header themes
-@import 'globals';
 .header{
   .powered-by-revelry{
       position: absolute;
@@ -46,12 +47,25 @@
   }
 }
 //splash themes
-.hero-splash{
+.hero-splash {
   width: 100%;
   height: 100%;
-  background: url('/images/lintron-hero-bg.png') $background_color;
+  background: url('/images/lintron-hero-bg.png') $body-bkgd;
   background-size: cover;
   background-position: center;
+  padding-bottom: $global-vertical-space * 2;
+}
+
+.led-logo {
+  position: relative;
+  top: -28px;
+  left: -6px;
+}
+
+.logo {
+  max-width: 240px;
+  position: relative;
+  top: 9px;
 }
 
 //hooks themes
@@ -81,7 +95,7 @@
 }
 //style encapsulation workaround
 
-.lintron-styles{
+.lintron-styles {
   img{
     max-width: inherit;
   }
@@ -100,18 +114,13 @@
     text-decoration: none;
   }
   h1{
-    font-size: 80pt;
-    margin: 0px;
-    letter-spacing: 6px;
     color:$white;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
   }
-  h2{
+  h2 {
     color:$white;
     font-family: 'Open Sans', sans-serif;
-    font-size: 65px;
-    margin:0px;
     letter-spacing: 0px;
   }
   h3{
@@ -133,42 +142,56 @@
     color:$white;
   }
   .color-accent-text{
-    color:$primary_color_accent;
+    color:$secondary-color;
   }
   .color-text{
-    color:$primary_color;
+    color:$primary-color;
   }
-  //form styles
-  .hooks-form{
-    border: solid 2px #cccccc;
-    width: 95%;
-    height: 60px;
-    margin: 0px;
-    padding: 10px;
-    font-weight: 900;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .background{
+    background: $body-bkgd;
   }
-  .hooks-form:hover{
-    border: solid 2px $primary_color_accent_shadow;
+  section {
+    @include breakpoint($medium) {
+      padding: $global-vertical-space * 4 $global-horizontal-space * 4;
+    }
   }
-  .hooks-form:focus{
-    border: solid 2px $primary_color_accent;
-    color:$primary_color_accent;
+  .dark {
+    background: $black;
+    background-repeat: repeat;
+    color: #fff;
+    a,
+    a:link,
+    a:visited,
+    a:hover {
+      color: $yellow;
+    }
   }
-  .hooks-button{
-    background: $primary_color_accent;
-    width: 95%;
-    height: 60px;
-    color:$white;
-    margin: 0px;
-    font-style: italic;
-    font-weight: 900;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  .dark.map {
+    background-color: $black;
+    background-blend-mode: overlay;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top: 1px solid $black;
+    clear: both;
   }
-  .hooks-button:hover{
-    background: $primary_color_accent_shadow;
+  .yellow {
+    background: $yellow;
+  }
+  section.footer {
+    padding: $global-vertical-space 0;
+    ul {
+      display: inline-block;
+      list-style-position: outside;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      vertical-align: middle;
+      li {
+        display: block;
+        float: left;
+        font-size: inherit;
+        margin-left: 2rem;
+      }
+    }
   }
 }
