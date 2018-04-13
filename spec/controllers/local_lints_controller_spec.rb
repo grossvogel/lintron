@@ -16,7 +16,7 @@ RSpec.describe LocalLintsController, type: :controller do
 
   describe '#create' do
     it 'can take a JSON of a lint request, and return violations' do
-      post :create, params
+      post :create, params: params
 
       expect(response).to be_success
       expect do

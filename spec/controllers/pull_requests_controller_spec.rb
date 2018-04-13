@@ -51,27 +51,33 @@ RSpec.describe PullRequestsController, type: :controller do
   end
 
   it 'handles start date param' do
-    get :index, start_date: (Time.zone.now - 1.week).beginning_of_day, end_date: Time.zone.now
+    get :index, params: {
+      start_date: (Time.zone.now - 1.week).beginning_of_day,
+      end_date: Time.zone.now,
+    }
     expect(assigns(:prs).length).to eq 3
   end
 
   it 'handles end date param' do
-    get :index, start_date: Date.parse('1/1/1901'), end_date: (Time.zone.now - 1.week).end_of_day
+    get :index, params: {
+      start_date: Date.parse('1/1/1901'),
+      end_date: (Time.zone.now - 1.week).end_of_day,
+    }
     expect(assigns(:prs).length).to eq 2
   end
 
   it 'handles merged param' do
-    get :index, merged: 'true'
+    get :index, params: { merged: 'true' }
     expect(assigns(:prs).length).to eq 1
     expect(assigns(:prs)).to include merged_lintron_two_weeks_ago
 
-    get :index, merged: 'false'
+    get :index, params: { merged: 'false' }
     expect(assigns(:prs).length).to eq 3
     expect(assigns(:prs)).to include unmerged_lintron_one_week_ago
     expect(assigns(:prs)).to include unmerged_lintron_today
     expect(assigns(:prs)).to include unmerged_other_today
 
-    get :index, merged: ''
+    get :index, params: { merged: '' }
     expect(assigns(:prs).length).to eq 4
     expect(assigns(:prs)).to include merged_lintron_two_weeks_ago
     expect(assigns(:prs)).to include unmerged_lintron_one_week_ago
@@ -80,7 +86,7 @@ RSpec.describe PullRequestsController, type: :controller do
   end
 
   it 'handles repo param' do
-    get :index, repo: 'revelrylabs/lintron'
+    get :index, params: { repo: 'revelrylabs/lintron' }
     expect(assigns(:prs).length).to eq 3
   end
 end

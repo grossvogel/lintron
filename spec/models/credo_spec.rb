@@ -6,8 +6,11 @@ describe Linters::Credo do
     defmodule Hi do
 
       def function_without_docs() do
-        Enum.map([], fn(x) -> x end)
-        |> Enum.map(fn(x) -> x end)
+        if !true do
+          "Beep"
+        else
+          "Boop"
+        end
       end
     end
     ELIXIR

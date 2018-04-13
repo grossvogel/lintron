@@ -6,7 +6,6 @@ class StubFile < FileLike
   attr_accessor :path, :blob
 
   def self.from_json(json)
-    json = json.symbolize_keys
     StubFile.new(
       path: json[:path],
       blob: json[:blob],
