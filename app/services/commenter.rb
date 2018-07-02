@@ -28,7 +28,7 @@ class Commenter
   def add_review
     body = (new_comments.select { |cmt| cmt.class == IssueComment }).map(&:body).join("\n---\n")
     if body.empty?
-      body = "http://lintron.herokuapp.com/relint/#{@pr.org}/#{@pr.repo}/#{@pr.pr_number}"
+      body = "http://lintron.io/relint/#{@pr.org}/#{@pr.repo}/#{@pr.pr_number}"
     end
 
     Github.pull_requests.reviews.create pr.org, pr.repo, pr.pr_number,

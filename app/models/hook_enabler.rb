@@ -1,5 +1,5 @@
 class HookEnabler
-  HOOK_URL = 'https://lintron.herokuapp.com/github_webhooks'
+  HOOK_URL = 'https://lintron.io/github_webhooks'
 
   attr_accessor :repo, :org, :user
 
