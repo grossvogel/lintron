@@ -2,7 +2,8 @@ class PullRequestsController < ApplicationController
   before_action :authenticate_user_from_token!
 
   def index
-    raise ActionController::RoutingError.new('not found') if current_user.blank?
+    session[:user_return_to] = request.url
+    return redirect_to(user_github_omniauth_authorize_path) if current_user.blank?
 
     @prs =
       PullRequest
