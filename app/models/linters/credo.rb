@@ -25,9 +25,14 @@ module Linters
 
     def cmd(file)
       <<-CMD.squish
-        mix credo --format=oneline --read-from-stdin #{file.path}
+        mix credo --format=oneline #{config_opt} --read-from-stdin #{file.path}
         2>&1
       CMD
+    end
+
+    def config_opt
+      return '' unless @linter_config
+      "--config-file #{@linter_config.path}"
     end
 
     def lints(file, lint_string)
