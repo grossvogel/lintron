@@ -16,7 +16,8 @@ class LocalPrAlike
       pr.files = params[:files].map do |file_json|
         StubFile.from_json(file_json)
       end
-      pr.linter_configs = (params[:linter_configs] || {}).reduce({}) do |acc, (filename, content)|
+      linter_configs = (params[:linter_configs] || {}).to_h
+      pr.linter_configs = linter_configs.reduce({}) do |acc, (filename, content)|
         acc.merge(filename => LinterConfigFile.from_content(content))
       end
     end
