@@ -46,7 +46,11 @@ module Linters
     end
 
     def config
-      @_config ||= ::SCSSLint::Config.load(::SCSSLint::Config::FILE_NAME)
+      @_config ||= ::SCSSLint::Config.load(config_file)
+    end
+
+    def config_file
+      @linter_config ? @linter_config.path : self.class.config_filename
     end
 
     SUIT = {
