@@ -4,7 +4,7 @@ class LocalLintsController < ApplicationController
   skip_before_action :verify_authenticity_token, if: :json_request?
 
   def create
-    pr = LocalPrAlike.from_json(params)
+    pr = LocalPrAlike.from_json(local_pr_params)
     violations = Linters.violations_for_pr(pr)
 
     render json: violations
@@ -14,5 +14,14 @@ class LocalLintsController < ApplicationController
 
   def json_request?
     request.format.json?
+  end
+
+  def local_pr_params
+    params.permit(
+      :org,
+      :repo,
+      linter_configs: {},
+      files: %i[blob patch path],
+    )
   end
 end
