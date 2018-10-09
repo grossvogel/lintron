@@ -8,6 +8,6 @@
     </div>
   </div>
   <ul class='header-nav'>
-    <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'right-text github-signin big') %>
+    <%= link_to('Logout', destroy_user_session_path(_method: 'delete'), method: :delete, class: 'right-text github-signin big') %>
   </ul>
 </div>
