@@ -5,13 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
   def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.username = auth.info.nickname
-      user.email = auth.info.email
-      user.provider = auth.provider
-      user.uid = auth.uid
-      user.secret = auth.credentials.token
-    end
+    user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
+    user.username = auth.info.nickname
+    user.email = auth.info.email
+    user.provider = auth.provider
+    user.uid = auth.uid
+    user.secret = auth.credentials.token
+    user.save
+    user
   end
 
   def self.new_with_session(params, session)
