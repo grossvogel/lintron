@@ -14,6 +14,6 @@ class HooksController < ApplicationController
       flash[:alert] = e.message
     end
 
-    redirect_to :back
+    redirect_back fallback_location: root_path
   end
 end
