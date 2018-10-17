@@ -1,6 +1,17 @@
 #!/usr/bin/env ruby
 require 'pathname'
 
+def run_line_by_line(all_commands)
+  all_commands.lines.each do |command|
+    if system(command)
+      puts "ok: #{command}"
+    else
+      puts "failed: #{command}"
+      fail('Aborting setup.')
+    end
+  end
+end
+
 # path to your application root.
 APP_ROOT = Pathname.new File.expand_path('../../',  __FILE__)
 
@@ -11,6 +22,18 @@ Dir.chdir APP_ROOT do
   puts "== Installing dependencies =="
   system "gem install bundler --conservative"
   system "bundle check || bundle install"
+
+  if ENV['CI']
+    ci_setup = <<-BASH
+      wget https://packages.erlang-solutions.com/erlang-solutions_1.0_all.deb && sudo dpkg -i erlang-solutions_1.0_all.deb
+      sudo apt-get update
+      sudo apt-get install esl-erlang
+      sudo apt-get install elixir
+    BASH
+
+    run_line_by_line(ci_setup)
+  end
+  system "mix deps.get"
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
