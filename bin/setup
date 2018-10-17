@@ -30,6 +30,7 @@ Dir.chdir APP_ROOT do
       sudo apt-key add erlang_solutions.asc
       sudo apt-get update
       sudo apt-get install elixir
+      mix local.hex --force
     BASH
 
     run_line_by_line(ci_setup)
