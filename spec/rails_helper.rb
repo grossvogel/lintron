@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'devise'
+require 'vcr'
 
 SimpleCov.start 'rails'
 
@@ -10,6 +11,12 @@ require File.expand_path('../../config/environment', __FILE__)
 Dir['app/**/*.rb'].each do |f|
   require Rails.root.join(f)
 end
+
+VCR.configure do |config|
+  config.cassette_library_dir = "fixtures/vcr_cassettes"
+  config.hook_into :faraday
+end
+
 
 # Prevent database truncation if the environment is production
 abort('The Rails environment is running in production mode!') if Rails.env.production?

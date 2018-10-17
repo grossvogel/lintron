@@ -71,6 +71,7 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'simplecov'
+  gem 'vcr'
 end
 
 group :test do

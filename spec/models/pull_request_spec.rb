@@ -27,10 +27,13 @@ describe PullRequest do
     end
 
     it 'returns nil on a NotFound error' do
+      contents_client = Github.repos.contents
       allow(Github.repos.contents).to receive(:get).and_throw(Github::Error::NotFound)
-      expect do
-        expect(pr.get_config_file('.eslintrc')).to be(nil)
-      end.not_to raise_error
+      VCR.use_cassette('return_nil_on_not_found') do
+        expect do
+          expect(pr.get_config_file('.eslintrc')).to be(nil)
+        end.not_to raise_error
+      end
     end
 
     it 'does not try to fetch nil config file from github' do
