@@ -19,7 +19,7 @@ before_script:
 script:
 - RAILS_ENV=test bin/test
 deploy:
-  provider: deis
+  provider: hephy
   controller: deis.prod.revelry.net
   app: lintron
   cli_version: v2.7.0
