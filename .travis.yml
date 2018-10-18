@@ -30,3 +30,5 @@ deploy:
     branch: master
 after_deploy:
 - ./deis run "rake db:migrate" -a lintron
+git:
+  depth: false
