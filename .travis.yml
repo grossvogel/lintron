@@ -23,9 +23,8 @@ deploy:
   controller: https://deis.prod.revelry.net
   app: lintron
   cli_version: v2.19.0
-  username: travis-ci
-  password:
-    secure: "ANLEoEWym8DFC8Q8pNqwdJLtuLLmuAKoR74dZL0NQGmuRvRZ9gBIHw1kiQOjpyUhgPFc9pN3nHWfr2ZQY0xKWfdBKWe7i0WUvUh1wUl/M3w2rCZ/bNCVAkMhpb6tId54AbuA22dKlBa0nfz0T98ObzKiyaDc0mlsCOrcxzWmGxQ8D7le+MLVxWk33NRIEmjb93B18TGKFh3szFbqgDedDEmRDF2jl04bTYWy/iCF+SOhk/nNrsXkHODcYYWLsFqoA+G/SEHxnZQYfKhTZcR5FrkM/myuwKYj3Ebm9WUZ/9+nAtT/1kGcZ7kDWDuTk4dEIVqXU8xy5uyiNETPG615t3m6O0cWxV4u4RFJIu94EDcQC7weU1wgjyP5lrOdKcMKL4ah/+J957lFhTvcQscMLBzUCz8uEEI2XDAH9u1bgc1eKy7/FrffjcuKdXAe+soCFCnoPkeh0YNWG7JGu/I7diBbIgnJqPTfCsCCTL8TUERpKSApOQsKnxY6GM2OMarvINFhJd64o4mhrs3nEuWBkL2ozAVUlXRkkPRKsIWz+PlGlKb3n6ReamBI3slA+aX2KbKsHFGzeAmgq+2R7eA7i/M/zfgv4o3A22x4dbjGF1MwwIjYj1NJPoFp0g5qiHgSHuAulLNtTJ58uL/tnvUtVQ0DFDYK2nQ5GzVPiL3qMds="
+  username: '$DEIS_USERNAME'
+  password: '$DEIS_PASSWORD'
   on:
     branch: master
 after_deploy:
