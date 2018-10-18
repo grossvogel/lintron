@@ -25,6 +25,7 @@ deploy:
   cli_version: v2.19.0
   username: '$DEIS_USERNAME'
   password: '$DEIS_PASSWORD'
+  skip_cleanup: true
   on:
     branch: master
 after_deploy:
