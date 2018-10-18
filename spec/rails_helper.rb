@@ -1,7 +1,12 @@
 require 'simplecov'
+require 'coveralls'
 require 'devise'
 require 'vcr'
 
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+])
 SimpleCov.start 'rails'
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'

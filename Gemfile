@@ -70,8 +70,9 @@ group :development, :test do
   gem 'byebug'
 
   gem 'rspec-rails'
-  gem 'simplecov'
+  gem 'simplecov', '~> 0.16.1'
   gem 'vcr'
+  gem 'coveralls', require: false
 end
 
 group :test do
