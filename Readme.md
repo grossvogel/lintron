@@ -1,7 +1,7 @@
 # Lintron
 
 [![Build Status](https://travis-ci.com/revelrylabs/lintron.svg?branch=master)](https://travis-ci.com/revelrylabs/lintron)
-[![Coverage Status](https://coveralls.io/repos/github/revelrylabs/lintron/badge.svg?branch=master)](https://coveralls.io/github/revelrylabs/lintron?branch=master)
+[![Coverage Status](http://opencov.prod.revelry.net:5000/projects/1/badge.svg)]
 
 Automatically lints Github Pull Requests and posts lints as review comments.
 
