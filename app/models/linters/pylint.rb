@@ -4,21 +4,18 @@ module Linters
 
     def run(file)
       scratch_file = Tempfile.new(file.extname)
-      begin
-        scratch_file.write(file.blob)
-        scratch_file.flush
-        scratch_file.rewind
+      scratch_file.write(file.blob)
+      scratch_file.flush
+      scratch_file.rewind
 
-        lint_string = IO.popen(cmd(scratch_file), 'r+') do |f|
-          f.read
-        end
-
-        return lints(file, lint_string)
-      ensure
-        scratch_file.close
-        scratch_file.unlink
+      lint_string = IO.popen(cmd(scratch_file), 'r+') do |f|
+        f.read
       end
-      []
+
+      scratch_file.close
+      scratch_file.unlink
+
+      return lints(file, lint_string)
     end
 
     def cmd(file)
