@@ -8,6 +8,38 @@ describe PullRequest do
     pr
   end
 
+  describe '#from_url' do
+    it 'can parse the URL correctly' do
+      pr = PullRequest.from_url('https://github.com/test-org/test/pull/123')
+
+      expect(pr.org).to eq 'test-org'
+      expect(pr.repo).to eq 'test'
+      expect(pr.pr_number).to eq 123
+    end
+  end
+
+  describe '#from_payload' do
+    it 'can handle a GitHub payload' do
+      pr = PullRequest.from_payload(
+        'pull_request' => {
+          'head' => {
+            'repo' => {
+              'name' => 'test',
+              'owner' => {
+                'login' => 'test-org',
+              },
+            },
+          },
+        },
+        'number' => 123,
+      )
+
+      expect(pr.org).to eq 'test-org'
+      expect(pr.repo).to eq 'test'
+      expect(pr.pr_number).to eq 123
+    end
+  end
+
   describe '#expected_url_from_path' do
     it 'returns a github url with the correct parts' do
       expect do
