@@ -31,7 +31,8 @@ Dir.chdir APP_ROOT do
       sudo apt-get update
       sudo apt-get install elixir
       mix local.hex --force
-      pip install pylint
+      pip --user install pylint
+      export PATH=$HOME/.local/bin:$PATH
     BASH
 
     run_line_by_line(ci_setup)
