@@ -62,7 +62,7 @@ disable=invalid-name,protected-access,fixme,too-many-branches,
         # Crashes, see #743.
         redefined-variable-type
 
-disable=unused-argument,unused-variables
+disable=unused-argument
 
 
 [REPORTS]
