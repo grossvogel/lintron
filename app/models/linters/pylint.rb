@@ -20,8 +20,13 @@ module Linters
 
     def cmd(file)
       <<-CMD.squish
-        pylint #{file.path} --msg-template='{path}:{line}: {category} ({msg_id} {symbol}, {obj}) {msg}'
+        pylint #{file.path} #{config_opt} --msg-template='{path}:{line}: {category} ({msg_id} {symbol}, {obj}) {msg}'
       CMD
+    end
+
+    def config_opt
+      return '' unless @linter_config
+      "--rcfile #{@linter_config.path}"
     end
 
     def lints(file, lint_string)

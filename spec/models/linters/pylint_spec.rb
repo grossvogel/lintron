@@ -39,6 +39,14 @@ describe Linters::Pylint do
         violations = Linters::Pylint.new.run(bad_file)
         expect(violations).to_not be_empty
       end
+
+      it 'honors a custom config' do
+        linter_config = LinterConfigFile.from_path(
+          file_fixture('pylint_allow_unused').to_s
+        )
+        violations = Linters::Pylint.new(linter_config).run(bad_file)
+        expect(violations).to be_empty
+      end
     end
   end
 end
