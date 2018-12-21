@@ -23,5 +23,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'httparty', '~> 0.14.0'
   s.add_dependency 'colorize', '~> 0.8.1'
   s.add_dependency 'ruby-terminfo', '~> 0.1.1'
-  s.add_dependency 'filewatcher', '~> 0.5.3'
+  s.add_dependency 'filewatcher', '>= 0.5.3', '< 1.2.0'
 end
