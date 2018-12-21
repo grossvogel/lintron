@@ -55,7 +55,7 @@ GEM
     business_time (0.7.5)
       activesupport (>= 3.1.0)
       tzinfo
-    byebug (9.0.6)
+    byebug (10.0.2)
     chronic (0.10.2)
     colorize (0.8.1)
     concurrent-ruby (1.1.4)
