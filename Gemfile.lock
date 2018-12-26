@@ -85,7 +85,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     filewatcher (1.1.1)
       optimist (~> 3.0)
-    git_diff_parser (2.3.0)
+    git_diff_parser (3.1.0)
     github_api (0.15.0)
       addressable (~> 2.4.0)
       descendants_tracker (~> 0.0.4)
