@@ -52,8 +52,8 @@ GEM
       sass (~> 3.3)
       sassy-maps (< 1.0.0)
     builder (3.2.3)
-    business_time (0.7.5)
-      activesupport (>= 3.1.0)
+    business_time (0.9.3)
+      activesupport (>= 3.2.0)
       tzinfo
     byebug (10.0.2)
     chronic (0.10.2)
