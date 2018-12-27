@@ -80,4 +80,4 @@ group :test do
 end
 
 # Access an IRB console on exception pages or by using <%= console %> in views
-gem 'web-console', '~> 3.5.1', group: 'development'
+gem 'web-console', '~> 3.7.0', group: 'development'
