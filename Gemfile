@@ -37,7 +37,7 @@ gem 'rubocop'
 gem 'brakeman'
 
 gem 'github_api', '~> 0.18.2'
-gem 'github_webhook', '~> 1.0.3'
+gem 'github_webhook', '~> 1.1.1'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'devise'
