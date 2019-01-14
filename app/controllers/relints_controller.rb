@@ -11,6 +11,6 @@ class RelintsController < ApplicationController
   end
 
   def pr_params
-    params.permit(:org, :repo, :pr_number).symbolize_keys
+    params.permit(:org, :repo, :pr_number)
   end
 end
