@@ -32,6 +32,6 @@
     "jstransform": "^11.0.1",
     "react-tools": "0.13.3",
     "resolve": "^1.10.0",
-    "underscore": "^1.8.3"
+    "underscore": "^1.9.1"
   }
 }
