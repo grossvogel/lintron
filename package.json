@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/prehnRA/lintron",
   "dependencies": {
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.1",
     "browserify": "^16.2.3",
     "coffee-react-transform": "^5.0.0",
     "coffee-script": "^1.9.2",
