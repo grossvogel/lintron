@@ -13,7 +13,7 @@ defmodule Lintron.Mixfile do
 
   defp deps do
     [
-      {:credo, "~> 0.9.0"},
+      {:credo, "~> 1.0"},
     ]
   end
 end
