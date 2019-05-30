@@ -17,7 +17,7 @@ module Linters
           Violation.new(
             file: file,
             line: (file.patch.changed_lines.first.number rescue 1),
-            message: 'Unexpected error in ESLint',
+            message: "Unexpected error in ESLint. Raw response:\n#{lint_string}",
             linter: Linters::ESLint,
           ),
         ]
