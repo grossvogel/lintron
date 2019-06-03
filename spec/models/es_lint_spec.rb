@@ -16,7 +16,7 @@ return "This is some pretty poorly formatted code to be completely honest. We ki
     )
 
     lints = Linters::ESLint.new.run(file)
-
     expect(lints).to_not be_empty
+    expect(lints.select{ |lint| lint.message =~ /^unexpected error in eslint/i}).to be_empty
   end
 end
