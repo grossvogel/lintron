@@ -2,7 +2,6 @@ sudo: required
 dist: trusty
 language: ruby
 rvm: 2.3.8
-node_js: 9.3
 addons:
   postgresql: '10'
   apt:
@@ -16,6 +15,8 @@ services:
   - postgresql
 install:
   - rvm use 2.3.8 --install
+  - nvm install 9.3.0
+  - nvm use 9.3.0
   - npm install
 before_script:
   - RAILS_ENV=test bin/setup
